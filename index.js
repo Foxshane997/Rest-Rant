@@ -1,6 +1,7 @@
 require('dotenv').config()
 const express = require('express')
 const app = express()
+// Requirements & Declarations
 
 // The app using the file places file in controllers folder
 app.use('/places', require('./controllers/places'))
