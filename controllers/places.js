@@ -1,9 +1,7 @@
-const { Router } = require("express")
-
 const router = require ("express").Router()
 
 router.get('/', (req, res) => {
-    res.send('GET /places')
+    res.send('GET /places' + ' - This is the places/controller folder & file')
 })
 
-module.exports = Router
+module.exports = router
