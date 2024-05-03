@@ -2,6 +2,9 @@ require('dotenv').config()
 const express = require('express')
 const app = express()
 
+// The app using the file places file in controllers folder
+app.use('/places', require('./controllers/places'))
+
 app.get('/', (req, res) => {
     res.send('Hello world!')
 })
