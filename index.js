@@ -11,6 +11,9 @@ app.use(express.static('public'))
 // Places route using the places.js file
 app.use('/places', require('./controllers/places'))
 
+// Body Parser
+app.use(express.urlencoded({ extended: true }))
+
 // Home page
 app.get('/', (req, res) => {
     res.render('home')
