@@ -8,7 +8,7 @@ app.set('view engine', 'jsx')
 app.engine('jsx', require('express-react-views').createEngine())
 app.use(express.static('public'))
 
-// The app using the file places file in controllers folder
+// Places route using the places.js file
 app.use('/places', require('./controllers/places'))
 
 // Home page
