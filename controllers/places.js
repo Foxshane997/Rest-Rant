@@ -23,4 +23,9 @@ router.get('/', (req, res) => {
     res.render('places/index', {places})
   })
 
+  // POST /places
+router.post('/', (req, res) => {
+  res.redirect('/places');
+});
+
 module.exports = router
