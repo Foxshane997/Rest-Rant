@@ -7,12 +7,14 @@ const app = express()
 app.set('view engine', 'jsx')
 app.engine('jsx', require('express-react-views').createEngine())
 app.use(express.static('public'))
+// Body Parser
+app.use(express.urlencoded({ extended: true }))
 
 // Places route using the places.js file
 app.use('/places', require('./controllers/places'))
 
 // Body Parser
-app.use(express.urlencoded({ extended: true }))
+// app.use(express.urlencoded({ extended: true }))
 
 // Home page
 app.get('/', (req, res) => {
