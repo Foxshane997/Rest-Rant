@@ -22,26 +22,26 @@ router.get('/', (req, res) => {
         cuisines: 'Coffee, Bakery',
         pic: '/images/andriyko-podilnyk-RCfi7vgJjUY-unsplash (1).jpg'
       }]      
-    res.render('places/index', {places})
+    res.render('places/index.jsx', {places})
+    // This might be causing the issue
   })
 
   // POST /places
-  router.post('/', (req, res) => {
-    console.log(req.body)
-    if (!req.body.pic) {
-      // Default image if one is not provided
-      req.body.pic = 'http://placekitten.com/400/400'
-    }
-    if (!req.body.city) {
-      req.body.city = 'Anytown'
-    }
-    if (!req.body.state) {
-      req.body.state = 'USA'
-    }
-    places.push(req.body)
-    res.redirect('/places')
-  })
-  
-  
-  
+// POST /places
+router.post('/', (req, res) => {
+  console.log(req.body);
+  if (!req.body.pic) {
+    // Default image if one is not provided
+    req.body.pic = 'http://placekitten.com/400/400';
+  }
+  if (!req.body.city) {
+    req.body.city = 'Anytown';
+  }
+  if (!req.body.state) {
+    req.body.state = 'USA';
+  }
+  places.push(req.body);
+  res.redirect('/places'); // Redirect to the route that renders the updated list
+});
+
 module.exports = router
