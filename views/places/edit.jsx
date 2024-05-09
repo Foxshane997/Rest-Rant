@@ -20,7 +20,7 @@ function edit_form ({place, id}) {
                         <label htmlFor="pic">Place City</label>
                         <input id="city" type="text"
                             name="city"
-                            id="city"
+                            id="city" /* Not sure why these are all red */
                             required
                             defaultValue={place.city} />
                     </div>
