@@ -38,3 +38,5 @@ function new_form() {
     </Def>
   );
 }
+
+module.exports = new_form 
