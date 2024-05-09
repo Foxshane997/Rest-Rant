@@ -29,7 +29,7 @@ router.get('/', (req, res) => {
   // POST /places
 // POST /places
 router.post('/', (req, res) => {
-  console.log(req.body);
+  // console.log(req.body);
   if (!req.body.pic) {
     // Default image if one is not provided
     req.body.pic = 'http://placekitten.com/400/400';
@@ -41,7 +41,8 @@ router.post('/', (req, res) => {
     req.body.state = 'USA';
   }
   places.push(req.body);
-  res.redirect('/places'); // Redirect to the route that renders the updated list
+  console.log(places)
+  res.redirect('/'); // Redirect to the route that renders the updated list
 });
 
 module.exports = router
