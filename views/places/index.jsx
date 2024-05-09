@@ -1,25 +1,34 @@
 const React = require('react');
-const Def = require('../default');
+// Default template page
+const Def = require('../default')
 
-function PlacesIndex({ places }) {
+//Create index page using default page
+function index (data) {
+  let placesFormatted = data.places.map((place, index) => {
+    return (
+      <div key={index} className='place-columns'>
+        <h2>{place.name}</h2>
+        <p>
+          {place.cuisines}
+        </p>
+        <img src={place.pic} alt={place.name} />
+        <p>
+          Located in {place.city}, {place.state}
+        </p>
+      </div>
+    )
+  })
+
   return (
     <Def>
-      <main>
-        <h1>Places</h1>
-        <div className="places-list">
-          {places.map((place, index) => (
-            <div key={index} className="place">
-              <h2>{place.name}</h2>
-              <p>City: {place.city}</p>
-              <p>State: {place.state}</p>
-              <p>Cuisines: {place.cuisines}</p>
-              <img src={place.pic} alt={place.name} />
+        <main>
+            <h1>Places to Rant or Rave About</h1>
+            <div className='place-rows'>
+              {placesFormatted}
             </div>
-          ))}
-        </div>
-      </main>
+        </main>
     </Def>
-  );
+  )
 }
 
-module.exports = PlacesIndex;
+module.exports = index;
