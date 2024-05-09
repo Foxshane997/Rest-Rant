@@ -1,26 +1,31 @@
+// Modules and Globals
 require('dotenv').config()
 const express = require('express')
+const methodOverride = require('method-override')
 const app = express()
-// Requirements & Definitions
 
-// app.set('views', __dirname + '/views')
+// Express Settings
+app.set('views', __dirname + '/views')
 app.set('view engine', 'jsx')
 app.engine('jsx', require('express-react-views').createEngine())
 app.use(express.static('public'))
 app.use(express.urlencoded({ extended: true }))
+app.use(methodOverride('_method'))
 
-// Places route using the places.js file
+
+
+// Routes Controller
 app.use('/places', require('./controllers/places'))
-
-// Home page
+  
+//Homepage
 app.get('/', (req, res) => {
     res.render('home')
-})
+  })  
 
-// 404 Page - Always last
+// 404 Page
 app.get('*', (req, res) => {
-    res.render('error404')
-})
+  res.render('error404')
+});
 
-// Always Have this last.
+//listening for connections
 app.listen(process.env.PORT)
