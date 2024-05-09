@@ -2,31 +2,14 @@
 const router = require ("express").Router()
 const places = require('../models/places.js')
 
+router.get('/', (req, res) => {
+  res.render('places/index', {places})
+})
 
 router.get('/new', (req, res) => {
   res.render('places/new')
 })
 
-// GET /places
-router.get('/', (req, res) => {
-    let places = [{
-        name: 'H-Thai-ML',
-        city: 'Seattle',
-        state: 'WA',
-        cuisines: 'Thai, Pan-Asian',
-        pic: '/images/emy-XoByiBymX20-unsplash.jpg'
-      }, {
-        name: 'Coding Cat Cafe',
-        city: 'Phoenix',
-        state: 'AZ',
-        cuisines: 'Coffee, Bakery',
-        pic: '/images/andriyko-podilnyk-RCfi7vgJjUY-unsplash (1).jpg'
-      }]      
-    res.render('places/index.jsx', {places})
-    // This might be causing the issue
-  })
-
-  // POST /places
 // POST /places
 router.post('/', (req, res) => {
   // console.log(req.body);
@@ -42,7 +25,7 @@ router.post('/', (req, res) => {
   }
   places.push(req.body);
   console.log(places)
-  res.redirect('/'); // Redirect to the route that renders the updated list
+  res.redirect('/places'); // Redirect to the route that renders the updated list
 });
 
 module.exports = router
