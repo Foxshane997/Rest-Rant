@@ -2,6 +2,7 @@ const React = require('react')
 const Def = require('../default')
 
 function show (data) {
+    console.log(data) /* using this to see what the data is */
     return (
         <Def>
           <main>
