@@ -12,9 +12,12 @@ router.get('/new', (req, res) => {
   res.render('places/new')
 })
 
-router.get('/:id', (req, res) => {
-  res.render('places/show')
-})
+router.get("/:id", (req, res) => {
+  let id = Number(req.params.id);
+  if (isNaN(id)) { res.render("error404");
+  } else if (!places[id]) { res.render("error404");
+  } else
+  { res.render("places/show", { place: places[id], id: id }); } });
 
 // Edit route
 // Didn't say where to put this in the instructions.
