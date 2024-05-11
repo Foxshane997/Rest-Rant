@@ -48,15 +48,15 @@ router.get("/:id", (req, res) => {
 
 // Edit route
 router.get('/:id/edit', (req, res) => {
-  let id = Number(req.params.id)
-  if (isNaN(id)) {
+  let i = Number(req.params.id)
+  if (isNaN(i)) {
       res.render('error404')
   }
-  else if (!places[id]) {
+  else if (!places[i]) {
       res.render('error404')
   }
-  else {
-    res.render('places/edit', { place: places[id] })
+  else { 
+      res.render('places/edit', { place: places[i], i})
   }
 })
 
