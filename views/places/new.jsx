@@ -23,6 +23,10 @@ function new_form() {
             <label htmlFor="state">State:</label>
             <input id="state" name="state" />
           </div>
+          <div className="form-group">
+            <label for="founded">Founded Year</label>
+            <input className="form-control" id="founded" name="founded" />
+          </div>
           <div className="form-columns">
             <label htmlFor="cuisines">Cuisines:</label>
             <input id="cuisines" name="cuisines" />

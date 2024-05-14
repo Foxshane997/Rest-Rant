@@ -12,8 +12,6 @@ app.use(express.static('public'))
 app.use(express.urlencoded({ extended: true }))
 app.use(methodOverride('_method'))
 
-
-
 // Routes Controller
 app.use('/places', require('./controllers/places'))
   
