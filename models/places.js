@@ -9,19 +9,9 @@ const placeSchema = new mongoose.Schema({
   founded: Number
 })
 
-module.exports = mongoose.model('place', placeSchema)
+// Method
+placeSchema.methods.showEstablished = function() {
+  return `${this.name} has been serving ${this.city}, ${this.state} since ${this.founded}.`
+}
 
-
-// module.exports = [{
-//     name: 'H-Thai-ML',
-//     city: 'Seattle',
-//     state: 'WA',
-//     cuisines: 'Thai, Pan-Asian',
-//     pic: '/images/emy-XoByiBymX20-unsplash.jpg'
-//   }, {
-//     name: 'Coding Cat Cafe',
-//     city: 'Phoenix',
-//     state: 'AZ',
-//     cuisines: 'Coffee, Bakery',
-//     pic: '/images/andriyko-podilnyk-RCfi7vgJjUY-unsplash (1).jpg'
-//   }]
+module.exports = mongoose.model('Place', placeSchema)
