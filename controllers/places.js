@@ -2,6 +2,11 @@ const router = require('express').Router()
 const db = require('../models')
 const places = require('../models/places')
 
+// New Route
+router.get('/new', (req, res) => {
+  res.render('places/new')
+  })
+
 router.get('/', (req, res) => {
     db.Place.find()
     .then((places) => {
