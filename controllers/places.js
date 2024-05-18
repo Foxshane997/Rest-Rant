@@ -7,6 +7,7 @@ router.get('/new', (req, res) => {
   res.render('places/new')
   })
 
+  // Index Route
 router.get('/', (req, res) => {
     db.Place.find()
     .then((places) => {
@@ -17,6 +18,7 @@ router.get('/', (req, res) => {
     })
 })
 
+// Post Places Route
 router.post('/', (req, res) => {
   db.Place.create(req.body)
   .then(() => {
@@ -28,9 +30,12 @@ router.post('/', (req, res) => {
   })
 })
 
+// Show Route
 router.get('/:id', (req, res) => {
   db.Place.findById(req.params.id)
+  .populate('comments')
   .then(place => {
+      console.log(place.comments)
       res.render('places/show', { place })
   })
   .catch(err => {
@@ -47,14 +52,17 @@ router.put('/:id', (req, res) => {
   res.send('PUT /places/:id stub')
 })
 
+// Delete Route
 router.delete('/:id', (req, res) => {
   res.send('DELETE /places/:id stub')
 })
 
+// Edit Route
 router.get('/:id/edit', (req, res) => {
   res.send('GET edit form stub')
 })
 
+// Rant Route
 router.post('/:id/rant', (req, res) => {
   res.send('GET /places/:id/rant stub')
 })
