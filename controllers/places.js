@@ -20,7 +20,16 @@ router.get('/', (req, res) => {
 
 // Post Places Route
 router.post('/', (req, res) => {
-  db.Place.create(req.body)
+  function remove(obj) {
+    const result = {};
+    for (const key in obj) {
+      if (obj[key] !== "") {
+        result[key] = obj[key];
+      }
+    }
+    return result;
+  }
+  db.Place.create(remove(req.body))
   .then(() => {
       res.redirect('/places')
   })
