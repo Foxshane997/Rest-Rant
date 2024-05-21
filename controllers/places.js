@@ -99,8 +99,16 @@ router.put('/:id', (req, res) => {
 
 // Delete Route
 router.delete('/:id', (req, res) => {
-  res.send('DELETE /places/:id stub')
+  db.Place.findByIdAndDelete(req.params.id)
+  .then(place => {
+      res.redirect('/places')
+  })
+  .catch(err => {
+      console.log('err', err)
+      res.render('error404')
+  })
 })
+
 
 // Edit Route
 router.get('/:id/edit', (req, res) => {
